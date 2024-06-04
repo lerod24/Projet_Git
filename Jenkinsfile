@@ -2,7 +2,7 @@ pipeline {
     agent any
   environment {
     VENV = 'venv'
-
+}
     stages {
         stage('Clone repository') {
             steps {
@@ -31,4 +31,4 @@ pipeline {
         }
     }
 }
-}
+
