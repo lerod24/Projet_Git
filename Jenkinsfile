@@ -7,7 +7,7 @@ pipeline {
         stage('Clone repository') {
             steps {
                 git branch: 'master',
-                  url: 'https://github.com/lerod24/Projet_Git.git', credentials Id:'871ffda8-7f44-4339-a6b0-20a5ac2f7945'
+                  url: 'https://github.com/lerod24/Projet_Git.git', credentialsId:'871ffda8-7f44-4339-a6b0-20a5ac2f7945'
             }
         }
         stage('setup python environment') {
