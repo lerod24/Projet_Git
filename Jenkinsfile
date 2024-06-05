@@ -19,9 +19,13 @@ pipeline {
               '''
             }
         }
-        stage('Test') {
+        stage('Run test with pytest') {
             steps {
-                echo 'Testing'
+                bat '''
+                call %VENV%\\Scripts\\activate
+                pytest --junitxml=report.xml
+                '''
+            
             }
         }
         stage('Deploy') {
@@ -30,5 +34,18 @@ pipeline {
             }
         }
     }
+    
+    post {
+        always{
+            //publier resultats de test
+            junit 'report.xml'
+        }
+        cleanup{
+            //nettoyer l'environnement
+            bat 'rmdir /s /q %VENV%'
+            
+        }
+    }
+    
 }
 
