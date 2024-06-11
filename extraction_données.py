@@ -50,19 +50,7 @@ try:
     if connection.is_connected():
         cursor = connection.cursor()
         
-        create_table_query = 
-        CREATE TABLE IF NOT EXISTS stock_data (
-            Date DATE PRIMARY KEY,
-            Open FLOAT,
-            High FLOAT,
-            Low FLOAT,
-            Close FLOAT,
-            Adj_Close FLOAT,
-            Volume BIGINT
-        )
-        '''
 
-        cursor.execute(create_table_query)
         connection.commit()
 
         # Insérez les données dans la table
